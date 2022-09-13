@@ -34,10 +34,10 @@ public class SuperHero {
         return superHeroName;
     }
 
-    private String getPower(){
+    public String getPower(){
         return power;
     }
-    private boolean getIsHuman()
+    public boolean getIsHuman()
     {
         return isHuman;
     }
