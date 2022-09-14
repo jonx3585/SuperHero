@@ -36,10 +36,10 @@ public class DataBase {
     public void searchSuperHero(String searchName) {
         String searching = searchName;
         boolean found = false;
-        System.out.println("Helt søgt efter" + searching);
+        System.out.println("Helt søgt efter " + searching);
         for (SuperHero hero : database) {
         if(hero.getSuperHeroName().contains(searching)){
-            System.out.println("Helt fundet" + hero);
+            System.out.println("Helt fundet " + hero.getSuperHeroName());
             found = true;
             }
         }
