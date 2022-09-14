@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class DataBase {
-    private String searchName;
+
     private ArrayList<SuperHero> database = new ArrayList();
     public DataBase()
     {
@@ -34,11 +34,11 @@ public class DataBase {
     }
 
     public void searchSuperHero(String searchName) {
-        this.searchName = searchName;
+        String searching = searchName;
         boolean found = false;
-        System.out.println("Helt søgt efter" + searchName);
+        System.out.println("Helt søgt efter" + searching);
         for (SuperHero hero : database) {
-        if(hero.getSuperHeroName().contains(searchName)){
+        if(hero.getSuperHeroName().contains(searching)){
             System.out.println("Helt fundet" + hero);
             found = true;
             }
