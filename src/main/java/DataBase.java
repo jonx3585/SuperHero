@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
 public class DataBase {
-    //private SuperHero[] heroes = new SuperHero[5];
+    private String searchName;
     private ArrayList<SuperHero> database = new ArrayList();
-    //private int numOfHeroes;
     public DataBase()
     {
 
@@ -19,7 +18,6 @@ public class DataBase {
         hero.setStrength(strength);
         hero.setIsHuman(isHuman);
 
-        //heroes[numOfHeroes++] = hero;
         database.add(hero);
 
     }
@@ -33,5 +31,19 @@ public class DataBase {
                     "\n");
         }
 
+    }
+
+    public void searchSuperHero(String searchName) {
+        this.searchName = searchName;
+        boolean found = false;
+        System.out.println("Helt søgt efter" + searchName);
+        for (SuperHero hero : database) {
+        if(hero.getSuperHeroName().contains(searchName)){
+            System.out.println("Helt fundet" + hero);
+            found = true;
+            }
+        }
+        if(!found)
+            System.out.println("Helten kunne ikke findes");
     }
 }

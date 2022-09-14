@@ -1,32 +1,45 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         DataBase db = new DataBase();
+        int answer;
+        do {
+            System.out.println("Velkommen til superhelte Databasen ");
+            System.out.print("Tast 1 for ny helt \n Tast 2 for liste \n Tast 3 for at søge \n tast 9 for at afbryde");
+            answer = sc.nextInt();
+            if(answer == 1) {
+                System.out.println("Indtast årstal for skabelse af helt");
+                int creationYear = sc.nextInt();
 
-        System.out.println("Velkommen til superhelte Databasen");
+                System.out.println("Indtast borgerligt navn for helt");
+                String citizenName = sc.nextLine();
 
-        System.out.println("Indtast årstal for skabelse af helt");
-        int creationYear = sc.nextInt();
+                System.out.println("Indtast superhelte navn for helt");
+                String superHeroName = sc.nextLine();
 
-        System.out.println("Indtast borgerligt navn for helt");
-        String citizenName = sc.nextLine();
+                System.out.println("Indtast heltens superkraft");
+                String power = sc.nextLine();
 
-        System.out.println("Indtast superhelte navn for helt");
-        String superHeroName = sc.nextLine();
+                System.out.println("Indtast styrkeniveau for helt");
+                double strength = sc.nextDouble();
 
-        System.out.println("Indtast heltens superkraft");
-        String power = sc.nextLine();
+                System.out.println("Indtast om helt er menneske");
+                boolean isHuman = sc.nextBoolean();
 
-        System.out.println("Indtast styrkeniveau for helt");
-        double strength = sc.nextDouble();
+                db.makeHero(creationYear, citizenName, superHeroName, power, strength, isHuman);
+            }
+            else if (answer == 2) {
+                db.findSuperHero();
 
-        System.out.println("Indtast om helt er menneske");
-        boolean isHuman = sc.nextBoolean();
+            }
+            else if (answer == 9)
+                System.out.println("Farvel");
+            System.exit(0);
 
-        db.makeHero(creationYear, citizenName, superHeroName, power, strength, isHuman);
 
-
+        }while(answer != 9);
     }
 
 }
