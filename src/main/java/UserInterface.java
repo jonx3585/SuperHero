@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class UserInterface {
 
+    public UserInterface(){
+
+    }
+
 public void startProgram() {
     Scanner sc = new Scanner(System.in);
     DataBase db = new DataBase();
