@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataBase {
 
@@ -47,6 +48,7 @@ public class DataBase {
     }
 
     public void editHero(String searchName) {
+        Scanner sc = new Scanner(System.in);
         int count = 1;
         String searching = searchName;
         ArrayList<SuperHero> searchedHeroes = new ArrayList<SuperHero>();
@@ -63,7 +65,39 @@ public class DataBase {
                 System.out.println(count + " "+ h.getSuperHeroName());
                 count++;
             }
+            System.out.println("Vil du redigere en helt tast da nr.");
 
+            int heroNum = 0;
+            heroNum = sc.nextInt();
+            SuperHero tempHero = searchedHeroes.get(heroNum-1);
+
+            System.out.println("Indtast årstal for skabelse af helt");
+            int creationYear = sc.nextInt();
+            tempHero.setCreationYear(creationYear);
+            sc.nextLine();
+
+
+            System.out.println("Indtast borgerligt navn for helt");
+            String citizenName = sc.nextLine();
+            tempHero.setCitizenName(citizenName);
+
+            System.out.println("Indtast superhelte navn for helt");
+            String superHeroName = sc.nextLine();
+            tempHero.setSuperHeroName(superHeroName);
+
+            System.out.println("Indtast heltens superkraft");
+            String power = sc.nextLine();
+            tempHero.setPower(power);
+
+            System.out.println("Indtast styrkeniveau for helt");
+            double strength = sc.nextDouble();
+            tempHero.setStrength(strength);
+
+            System.out.println("Indtast om helt er menneske");
+            boolean isHuman = sc.nextBoolean();
+            tempHero.setIsHuman(isHuman);
+
+            break;
 
 
         }
