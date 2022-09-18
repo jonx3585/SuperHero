@@ -13,7 +13,7 @@ public void startProgram() {
     do
     {
         System.out.println("Velkommen til superhelte Databasen ");
-        System.out.print(" Tast 1 for ny helt \n Tast 2 for liste \n Tast 3 for at søge \n Tast 9 for at afbryde");
+        System.out.print(" Tast 1 for ny helt \n Tast 2 for liste \n Tast 3 for at søge \n Tast 4 for at redigere \n Tast 9 for at afbryde");
         answer = sc.nextInt();
         if (answer == 1) {
             System.out.println("Indtast årstal for skabelse af helt");
@@ -47,7 +47,16 @@ public void startProgram() {
             String search = sc.next();
             db.searchSuperHero(search);
 
-        } else if (answer == 9) {
+
+        }else if (answer == 4){
+
+
+            System.out.println("Indtast søgeord");
+            String search = sc.next();
+            db.editHero(search);
+
+
+        }else if (answer == 9) {
             System.out.println("Farvel");
             System.exit(0);
         }
