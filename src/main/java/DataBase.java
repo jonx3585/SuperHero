@@ -103,5 +103,20 @@ public class DataBase {
         }
         if (!found)
             System.out.println("Helten kunne ikke findes");
+
+
+
     }
+
+    public int readNumber(){
+        Scanner sc2 = new Scanner(System.in);
+        while(!sc2.hasNextInt()){
+            String text = sc2.next();
+            System.out.println("Du må ikke indtaste " + text + " det skal være et tal");
+        }
+        int result = sc2.nextInt();
+        return result;
+    }
+
 }
+
