@@ -18,23 +18,29 @@ public void startProgram() {
          answer = db.readNumber();
         if (answer == 1) {
             System.out.println("Indtast årstal for skabelse af helt");
-            int creationYear = sc.nextInt();
+            int creationYear = db.readNumber();
             sc.nextLine();
 
             System.out.println("Indtast borgerligt navn for helt");
-            String citizenName = sc.nextLine();
+            String citizenName = db.readString();
 
             System.out.println("Indtast superhelte navn for helt");
-            String superHeroName = sc.nextLine();
+            String superHeroName = db.readString();
 
             System.out.println("Indtast heltens superkraft");
-            String power = sc.nextLine();
+            String power = db.readString();
 
             System.out.println("Indtast styrkeniveau for helt");
-            double strength = sc.nextDouble();
+            double strength = db.readDoubleNumber();
 
             System.out.println("Indtast om helt er menneske");
-            boolean isHuman = sc.nextBoolean();
+            String humanQuest = db.readString();
+            boolean isHuman;
+            if(humanQuest.equalsIgnoreCase("ja"))
+                isHuman = true;
+            else {
+                isHuman = false;
+            }
 
             db.makeHero(creationYear, citizenName, superHeroName, power, strength, isHuman);
 
@@ -45,7 +51,7 @@ public void startProgram() {
 
         } else if (answer == 3) {
             System.out.println("Indtast søgeord");
-            String search = sc.next();
+            String search = db.readString();
             db.searchSuperHero(search);
 
 
@@ -53,7 +59,7 @@ public void startProgram() {
 
 
             System.out.println("Indtast søgeord");
-            String search = sc.next();
+            String search = db.readString();
             db.editHero(search);
 
 

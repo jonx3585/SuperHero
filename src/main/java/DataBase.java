@@ -68,34 +68,38 @@ public class DataBase {
             System.out.println("Vil du redigere en helt tast da nr.");
 
             int heroNum = 0;
-            heroNum = sc.nextInt();
+            heroNum = readNumber();
             SuperHero tempHero = searchedHeroes.get(heroNum-1);
 
             System.out.println("Indtast årstal for skabelse af helt");
-            int creationYear = sc.nextInt();
+            int creationYear = readNumber();
             tempHero.setCreationYear(creationYear);
             sc.nextLine();
 
 
             System.out.println("Indtast borgerligt navn for helt");
-            String citizenName = sc.nextLine();
+            String citizenName = readString();
             tempHero.setCitizenName(citizenName);
 
             System.out.println("Indtast superhelte navn for helt");
-            String superHeroName = sc.nextLine();
+            String superHeroName = readString();
             tempHero.setSuperHeroName(superHeroName);
 
             System.out.println("Indtast heltens superkraft");
-            String power = sc.nextLine();
+            String power = readString();
             tempHero.setPower(power);
 
             System.out.println("Indtast styrkeniveau for helt");
-            double strength = sc.nextDouble();
+            double strength = readDoubleNumber();
             tempHero.setStrength(strength);
 
             System.out.println("Indtast om helt er menneske");
-            boolean isHuman = sc.nextBoolean();
-            tempHero.setIsHuman(isHuman);
+            String humanQuest = readString();
+            if(humanQuest.equalsIgnoreCase("ja"))
+            tempHero.setIsHuman(true);
+            else {
+                tempHero.setIsHuman(false);
+            }
 
             break;
 
@@ -117,6 +121,27 @@ public class DataBase {
         int result = sc2.nextInt();
         return result;
     }
+
+    public String readString(){
+        Scanner sc2 = new Scanner(System.in);
+        while(!sc2.hasNextLine()){
+            int tal = sc2.nextInt();
+            System.out.println("Du må ikke indtaste " + tal + " det skal være text");
+        }
+        String result = sc2.nextLine();
+        return result;
+    }
+
+    public double readDoubleNumber(){
+        Scanner sc2 = new Scanner(System.in);
+        while (!sc2.hasNextDouble()) {
+            String text = sc2.nextLine();
+            System.out.println("Du må ikke indtaste " + text + " det skal være et tal");
+        }
+        double result = sc2.nextDouble();
+        return result;
+    }
+
 
 }
 
