@@ -14,7 +14,6 @@ public void startProgram() {
     {
         System.out.println("Velkommen til superhelte Databasen ");
         System.out.print(" Tast 1 for ny helt \n Tast 2 for liste \n Tast 3 for at søge \n Tast 4 for at redigere \n Tast 9 for at afbryde");
-        //answer = sc.nextInt();
          answer = db.readNumber();
         if (answer == 1) {
             System.out.println("Indtast årstal for skabelse af helt");
