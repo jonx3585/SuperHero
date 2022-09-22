@@ -59,17 +59,17 @@ public class DataBase {
                 searchedHeroes.add(hero);
                 found = true;
             }
-            if (!searchedHeroes.isEmpty()){
+            if (!searchedHeroes.isEmpty()) {
                 System.out.println("Her er heltene vi fandt");
-                for(SuperHero h: searchedHeroes)
-                System.out.println(count + " "+ h.getSuperHeroName());
+                for (SuperHero h : searchedHeroes)
+                    System.out.println(count + " " + h.getSuperHeroName());
                 count++;
             }
             System.out.println("Vil du redigere en helt tast da nr.");
 
             int heroNum = 0;
             heroNum = readNumber();
-            SuperHero tempHero = searchedHeroes.get(heroNum-1);
+            SuperHero tempHero = searchedHeroes.get(heroNum - 1);
 
             System.out.println("Indtast årstal for skabelse af helt");
             int creationYear = readNumber();
@@ -93,10 +93,10 @@ public class DataBase {
             double strength = readDoubleNumber();
             tempHero.setStrength(strength);
 
-            System.out.println("Indtast om helt er menneske");
+            System.out.println("Indtast om helt er menneske (ja/nej)");
             String humanQuest = readString();
-            if(humanQuest.equalsIgnoreCase("ja"))
-            tempHero.setIsHuman(true);
+            if (humanQuest.equalsIgnoreCase("ja"))
+                tempHero.setIsHuman(true);
             else {
                 tempHero.setIsHuman(false);
             }
@@ -109,12 +109,11 @@ public class DataBase {
             System.out.println("Helten kunne ikke findes");
 
 
-
     }
 
-    public int readNumber(){
+    public int readNumber() {
         Scanner sc2 = new Scanner(System.in);
-        while(!sc2.hasNextInt()){
+        while (!sc2.hasNextInt()) {
             String text = sc2.next();
             System.out.println("Du må ikke indtaste " + text + " det skal være et tal");
         }
@@ -122,9 +121,9 @@ public class DataBase {
         return result;
     }
 
-    public String readString(){
+    public String readString() {
         Scanner sc2 = new Scanner(System.in);
-        while(!sc2.hasNextLine()){
+        while (!sc2.hasNextLine()) {
             int tal = sc2.nextInt();
             System.out.println("Du må ikke indtaste " + tal + " det skal være text");
         }
@@ -132,7 +131,7 @@ public class DataBase {
         return result;
     }
 
-    public double readDoubleNumber(){
+    public double readDoubleNumber() {
         Scanner sc2 = new Scanner(System.in);
         while (!sc2.hasNextDouble()) {
             String text = sc2.nextLine();
@@ -141,7 +140,52 @@ public class DataBase {
         double result = sc2.nextDouble();
         return result;
     }
+/*
+    public void deleteHero(String searchName) {
+        Scanner sc = new Scanner(System.in);
+        int count = 1;
+        String searching = searchName;
+        ArrayList<SuperHero> searchedHeroes = new ArrayList<SuperHero>();
+        boolean found = false;
+        System.out.println("Helt søgt efter " + searching);
+        for (SuperHero hero : database) {
+            if (hero.getSuperHeroName().contains(searching)) {
+                searchedHeroes.add(hero);
+                found = true;
+            }
+            if (!searchedHeroes.isEmpty()) {
+                System.out.println("Her er heltene vi fandt");
+                for (SuperHero h : searchedHeroes)
+                    System.out.println(count + " " + h.getSuperHeroName());
+                count++;
+            }
+            System.out.println("Vil du slette en helt tast da nr.");
+
+            int heroNum = 0;
+            heroNum = readNumber();
+            SuperHero tempHero = searchedHeroes.get(heroNum - 1);
+
+            database.remove(tempHero);
+
+
+        }
+
+   }
+
+ */
+
+    public void deleteHero() {
+        int num = 1;
+        for (SuperHero hero : database) {
+            System.out.print(num++ + " " + hero.getSuperHeroName());
+
+        }
+        System.out.println("tast nr for at slette");
+        int numD = readNumber();
+        SuperHero tempHero = database.get(numD - 1);
+        database.remove(tempHero);
+
+    }
 
 
 }
-
